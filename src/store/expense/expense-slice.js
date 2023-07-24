@@ -3,12 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 export const expenseSlice = createSlice({
     name: 'expenseSlice',
     initialState: {
-        expenseList: [
-            // état initial
-            // { name: 'Ordinateur', price: '300' },
-            // { name: 'Coucougnette', price: '1300' },
-            // { name: 'Pacs d\'amour véritable', price: '3300' },
-        ]
+        expenseList: [],
+        addExpenseCallCount: 0
     },
     // on crée la clef reducers pour pouvoir créer les ACTIONS
     reducers: {
@@ -19,12 +15,11 @@ export const expenseSlice = createSlice({
                 price: Number.parseFloat(action.payload.price)
             })
         },
-        getExpenses: (currentSlice, action) => {
-            return currentSlice.expenseList;
+        incrementAddExpenseCallCount: (currentSlice, action) => {
+            currentSlice.addExpenseCallCount+=1;
         }
     }
 })
 
-// EXPORT DE L'ACTION, on y a accès via nomAction.actions
-// export const addExpense = expenseSlice.actions.addExpense;
-export const { addExpense, getExpenses } = expenseSlice.actions;
+export const { addExpense, getExpenses, incrementAddExpenseCallCount }
+= expenseSlice.actions;

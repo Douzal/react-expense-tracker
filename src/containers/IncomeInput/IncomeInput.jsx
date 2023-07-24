@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import style from "./style.module.css";
 // import { expenseSlice } from "store/expense/expense-slice.js";
-import incomeSlice, { modifyIncome } from "store/income/income-slice.jsx";
+import { modifyIncome } from "store/income/income-slice.jsx";
 
 export function IncomeInput() {
 
@@ -12,7 +12,6 @@ export function IncomeInput() {
   
   const setNewIncome = (e) => {
     const newIncome = e.target.value
-    console.log(`newIncome : ${newIncome}`);
     dispatch(modifyIncome(newIncome));
   }
 

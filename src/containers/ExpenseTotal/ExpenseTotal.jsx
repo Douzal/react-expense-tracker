@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import style from "./style.module.css";
-import { getExpenses } from "store/expense/expense-slice.js";
+// import { getExpenses } from "store/expense/expense-slice.js";
+// import { useEffect } from "react";
 
 export function ExpenseTotal() {
 
@@ -12,7 +13,6 @@ export function ExpenseTotal() {
 
   const income = useSelector(store => store.INCOME.income);
   const remainingMoney = income - totExpenses;
-
 
   return (
     <div>

@@ -1,8 +1,9 @@
 import { ListItem } from "../ListItem/ListItem";
 
 export function List({ items }) {
-  console.log(`items?.length > 0 : ${items?.length > 0}`);
+  // console.log(`items?.length > 0 : ${items?.length > 0}`);
   // console.log(`items : ${JSON.stringify(items)}`);
+  
   return (
     <div style={{ overflowY: "scroll", height: "40%" }}>
       <table className="table table-hover table-borderless">
@@ -14,7 +15,7 @@ export function List({ items }) {
                   <ListItem key={item.name + i} item={item}/>
                 );
               }):
-              'Aucun objet en liste...'
+              <tr><td>Aucun objet en liste...</td></tr>
           }
         </tbody>
       </table>

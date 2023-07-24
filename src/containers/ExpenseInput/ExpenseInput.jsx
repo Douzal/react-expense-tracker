@@ -7,12 +7,29 @@ export function ExpenseInput(props) {
   // HOOKS useDispatch pour renvoyer au slice
   const dispatch = useDispatch();
 
+  const isValidPrice = (price) => {
+    // console.log(`price : ${price}
+    // \ntypeOf(price) : ${typeof(price)}
+    // \nprice !== null : ${price !== null}
+    // \nprice !== undefined : ${price !== undefined}
+    // \ntypeof (price) === 'number' : ${typeof (price) === 'number'}
+    // \n price >= 0 : ${ price >= 0}\n\nTOTAL : ${price !== null && price !== undefined && typeof(price) === 'number' && price >= 0}`);
+    return (
+      price !== null
+      && price !== undefined
+      && typeof(price) === 'number'
+      && price >= 0
+    );
+  }
+
   const submit = (e) => {
     e.preventDefault();
+    //! ATTENTION formData.get changes every input to String...
     const formData = new FormData(e.currentTarget);
-    const name = formData.get('name');
-    const price = formData.get('price');
-    if (name !== '')
+    const name = String(formData.get('name'));
+    let price = formData.get('price');
+    if (price!=='') price = Number(price)
+    if (name !== '' && isValidPrice(price))
       dispatch(addExpense({ name, price }));
   }
 
