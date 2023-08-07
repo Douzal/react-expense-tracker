@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const incomeSlice = createSlice({
+export const incomeSlice = createSlice({
     name: 'incomeSlice',
     initialState: {
         income:400
@@ -12,5 +12,4 @@ const incomeSlice = createSlice({
     }
 })
 
-export { incomeSlice };
 export const { modifyIncome } = incomeSlice.actions;
